@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.1">
+  <object class="tk.Toplevel" id="toplevel">
+    <property name="height">1000</property>
+    <property name="resizable">none</property>
+    <property name="title" translatable="yes">ImageSecure</property>
+    <property name="width">400</property>
+    <child>
+      <object class="ttk.Frame" id="infoFrame">
+        <property name="height">0</property>
+        <property name="width">0</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">nw</property>
+        </layout>
+        <child>
+          <object class="ttk.Labelframe" id="modeFrame">
+            <property name="height">400</property>
+            <property name="text" translatable="yes">Mode</property>
+            <property name="width">400</property>
+            <layout manager="pack">
+              <property name="ipadx">5</property>
+              <property name="ipady">2</property>
+              <property name="padx">10</property>
+              <property name="pady">10</property>
+            </layout>
+            <child>
+              <object class="ttk.Radiobutton" id="encryptRadioButton">
+                <property name="command" type="command" cbtype="simple">ModeSelect</property>
+                <property name="text" translatable="yes">Encryption</property>
+                <property name="value">0</property>
+                <property name="variable">int:mode</property>
+                <property name="width">29</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Radiobutton" id="decryptRadioButton">
+                <property name="command" type="command" cbtype="simple">ModeSelect</property>
+                <property name="text" translatable="yes">Decryption</property>
+                <property name="value">1</property>
+                <property name="variable">int:mode</property>
+                <property name="width">29</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">1</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Labelframe" id="inconfigFrame">
+            <property name="height">600</property>
+            <property name="text" translatable="yes">Input</property>
+            <property name="width">400</property>
+            <layout manager="pack">
+              <property name="ipadx">5</property>
+              <property name="ipady">5</property>
+              <property name="padx">10</property>
+              <property name="pady">10</property>
+            </layout>
+            <child>
+              <object class="ttk.Entry" id="inputFile">
+                <property name="text" translatable="yes">file to process</property>
+                <property name="textvariable">string:inputfile</property>
+                <property name="width">31</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="pady">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="selectInputFile">
+                <property name="command" type="command" cbtype="simple">SelectInputFile</property>
+                <property name="text" translatable="yes">Select File</property>
+                <property name="width">31</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Labelframe" id="outconfigFrame">
+            <property name="height">600</property>
+            <property name="text" translatable="yes">Output</property>
+            <property name="width">400</property>
+            <layout manager="pack">
+              <property name="ipadx">5</property>
+              <property name="ipady">5</property>
+              <property name="padx">10</property>
+              <property name="pady">10</property>
+            </layout>
+            <child>
+              <object class="ttk.Entry" id="outputFile">
+                <property name="text" translatable="yes">path for finished file</property>
+                <property name="textvariable">string:outputfile</property>
+                <property name="width">31</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="pady">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="selectOutputFile">
+                <property name="command" type="command" cbtype="simple">SelectOutputFile</property>
+                <property name="text" translatable="yes">Select Path</property>
+                <property name="width">31</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">3</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Labelframe" id="keyFrame">
+            <property name="height">600</property>
+            <property name="text" translatable="yes">Shared Key</property>
+            <property name="width">400</property>
+            <layout manager="pack">
+              <property name="ipadx">5</property>
+              <property name="ipady">5</property>
+              <property name="padx">10</property>
+              <property name="pady">10</property>
+            </layout>
+            <child>
+              <object class="ttk.Entry" id="sharedKey">
+                <property name="textvariable">string:sharedSecret</property>
+                <property name="width">31</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="pady">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">5</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Labelframe" id="actionFrame">
+            <property name="height">100</property>
+            <property name="text" translatable="yes">Process</property>
+            <property name="width">200</property>
+            <layout manager="pack">
+              <property name="padx">10</property>
+              <property name="pady">10</property>
+            </layout>
+            <child>
+              <object class="ttk.Button" id="connectButton">
+                <property name="command" type="command" cbtype="simple">ProcessFile</property>
+                <property name="text" translatable="yes">Encrypt/Decrypt</property>
+                <property name="width">31</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">5</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
